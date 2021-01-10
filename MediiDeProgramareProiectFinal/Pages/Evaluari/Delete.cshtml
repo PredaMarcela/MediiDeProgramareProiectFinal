@@ -1,0 +1,52 @@
+﻿@page
+@model MediiDeProgramareProiectFinal.Pages.Evaluari.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Stergere</h1>
+
+<h3>Doresti sa stergi aceasta inregistrare?</h3>
+<div>
+    <h4>Evaluare</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Evaluare.Curs)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Evaluare.Curs.Denumire)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Evaluare.Student)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Evaluare.Student.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Evaluare.Student)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Evaluare.Student.An_studiu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Evaluare.Nota)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Evaluare.Nota)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Evaluare.Specializare)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Evaluare.Specializare.Denumire)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Evaluare.ID" />
+        <input type="submit" value="Stergere" class="btn btn-danger" /> |
+        <a asp-page="./Index">Inapoi la lista</a>
+    </form>
+</div>

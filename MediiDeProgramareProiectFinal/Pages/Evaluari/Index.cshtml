@@ -1,0 +1,60 @@
+﻿@page
+@model MediiDeProgramareProiectFinal.Pages.Evaluari.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="font-weight:bold; color:darkred">Evaluare studenti FSEGA</h1>
+
+<p>
+    <a asp-page="Create">Adaugare</a>
+</p>
+<table class="table" style="border:2px solid black;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluare[0].Curs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluare[0].Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluare[0].Student.An_studiu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluare[0].Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluare[0].Specializare)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Evaluare) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curs.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.An_studiu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specializare.Denumire)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Stergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

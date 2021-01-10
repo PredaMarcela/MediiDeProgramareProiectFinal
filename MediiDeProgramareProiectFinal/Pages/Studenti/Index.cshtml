@@ -1,0 +1,42 @@
+﻿@page
+@model MediiDeProgramareProiectFinal.Pages.Studenti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="font-weight:bold; color:darkred">Studenti FSEGA</h1>
+
+<p>
+    <a asp-page="Create">Adaugare</a>
+</p>
+<table class="table" style="border:2px solid black;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].An_studiu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Student) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.An_studiu)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Stergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@page
+@model MediiDeProgramareProiectFinal.Pages.Specializari.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="font-weight:bold; color:darkred">Specializari FSEGA</h1>
+
+<p>
+    <a asp-page="Create">Adaugare</a>
+</p>
+<table class="table" style="border:2px solid black;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Specializare[0].Denumire)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Specializare) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Denumire)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Stergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
